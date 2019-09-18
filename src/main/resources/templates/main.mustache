@@ -1,0 +1,17 @@
+<html>
+<body>
+    <div>
+    <form method="post">
+        <input type="text" name="text" placeholder = "Введите соо" />
+        <input type ="text" name="tag" placeholder = "Тэг" />
+        <button type = "submit"> Добавить </button>
+    </form>
+    <div>Список сообщений</div>
+        {{#messages}}
+    <b>{{id}}</b>
+    <span>{{text}}</span>
+    <i>{{tag}} </i>
+            </div>
+        {{/messages}}
+</body>
+</html>
