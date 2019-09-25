@@ -7,6 +7,10 @@
         <button type = "submit"> Добавить </button>
     </form>
     <div>Список сообщений</div>
+    <form method="post" action="filter" >
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
         {{#messages}}
     <b>{{id}}</b>
     <span>{{text}}</span>
