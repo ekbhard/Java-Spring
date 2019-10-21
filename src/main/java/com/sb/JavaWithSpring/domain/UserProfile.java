@@ -8,9 +8,9 @@ import java.util.Date;
 public class UserProfile {
 
     //хз что с этим делать как то либо так либо
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name = "id_user")
+//    private User user;
 
     //либо так
     @Id
@@ -42,14 +42,6 @@ public class UserProfile {
 
     public void setBirthdayDate(Date birthdayDate) {
         this.birthdayDate = birthdayDate;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getCity() {
