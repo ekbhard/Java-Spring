@@ -18,23 +18,23 @@ public class MakingProfileController {
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("/personalarea")
+    @GetMapping("/making-profile")
     public String main(Map<String,Object> model){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userRepo.getUserByUsername(username);
         model.put("name", user.getId());
         model.put("id", user.getUsername());
-        return "personalarea";
+        return "making-profile";
     }
 
-    @PostMapping("/personalarea")
+    @PostMapping("/making-profile")
     public String addCity(@RequestParam String city, Map<String,Object> model){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userRepo.getUserByUsername(username);
         user.setCity(city);
         userRepo.save(user);
-        return "personalarea";
+        return "making-profile";
     }
 }

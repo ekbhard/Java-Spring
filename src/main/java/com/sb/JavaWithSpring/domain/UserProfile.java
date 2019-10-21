@@ -1,9 +1,7 @@
 package com.sb.JavaWithSpring.domain;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "user_profile")
@@ -15,33 +13,35 @@ public class UserProfile {
     private User user;
 
     //либо так
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(length = 1024)
     private String city;
 
     @Column()
-    private Date birhdayDate;
+    private Date birthdayDate;
 
     @Column(insertable = true, updatable = true, length = 40)
     private String profile;
 
     @Column(insertable = true, updatable = true, length = 40)
-    List<String> hobbies;
+    private String hobbies;
 
     @Column(insertable = true, updatable = true, length = 40)
-    List<String> achivments;
+    private String achivments;
 
     @Column(insertable = true, updatable = true, length = 40)
-    List<String> careere;
+    private String careere;
 
 
-    public Date getBirhdayDate() {
-        return birhdayDate;
+    public Date getBirthdayDate() {
+        return birthdayDate;
     }
 
-    public void setBirhdayDate(Date birhdayDate) {
-        this.birhdayDate = birhdayDate;
+    public void setBirthdayDate(Date birthdayDate) {
+        this.birthdayDate = birthdayDate;
     }
 
     public User getUser() {
@@ -68,28 +68,35 @@ public class UserProfile {
         this.profile = profile;
     }
 
-    public List<String> getHobbies() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHobbies() {
         return hobbies;
     }
 
-    public void setHobbies(List<String> hobbies) {
+    public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
     }
 
-    public List<String> getAchivments() {
+    public String getAchivments() {
         return achivments;
     }
 
-    public void setAchivments(List<String> achivments) {
+    public void setAchivments(String achivments) {
         this.achivments = achivments;
     }
 
-    public List<String> getCareere() {
+    public String getCareere() {
         return careere;
     }
 
-    public void setCareere(List<String> careere) {
+    public void setCareere(String careere) {
         this.careere = careere;
     }
-
 }
