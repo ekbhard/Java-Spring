@@ -1,8 +1,10 @@
 package com.sb.JavaWithSpring.controller;
 
 import com.sb.JavaWithSpring.domain.Message;
+import com.sb.JavaWithSpring.domain.User;
 import com.sb.JavaWithSpring.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,17 +32,20 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text,@RequestParam String tag,Map<String,Object> model){
-        Message message = new Message(text, tag);
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String tag,Map<String,Object> model){
+        Message message = new Message(text, tag, user);
         messageRepo.save(message);
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages",messages);
         return "main";
     }
 
-    @PostMapping("filer")
-    public String filter(@RequestParam String fiter, Map<String,Object> model){
-        List<Message> messages = messageRepo.findByTag(fiter);
+    @PostMapping("filter")
+    public String filter(@RequestParam String filter, Map<String,Object> model){
+        List<Message> messages = messageRepo.findByTag(filter);
         model.put("messages" , messages);
         return "main";
     }

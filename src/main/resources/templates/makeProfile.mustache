@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>Данные о юзере</div>
+    <div> Привет! Меня зовут : </div>
+    <strong>{{name}}</strong>
+    <div> Мой айдишник : </div>
+    <strong>{{id}}</strong>
+    </div>
+
+    <form method="post" action="addCity" >
+        <input type="text" name="addCity">
+        <button type="submit">Найти</button>
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    </form>
+</body>
+</html>

@@ -7,7 +7,7 @@
     </form>
 </div>
     <form method="post">
-        <input type="text" name="text" placeholder = "Введите соо" />
+        <input type="text" name="text" placeholder = "Введите слово" />
         <input type ="text" name="tag" placeholder = "Тэг" />
         <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
         <button type = "submit"> Добавить </button>
@@ -22,7 +22,8 @@
     <b>{{id}}</b>
     <span>{{text}}</span>
     <i>{{tag}} </i>
-            </div>
+    <strong>{{aurhorName}}</strong>
+    </div>
         {{/messages}}
 </body>
 </html>
