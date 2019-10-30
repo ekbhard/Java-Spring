@@ -11,11 +11,12 @@ public class Message {
     private String text;
     private String tag;
 
+    public Message() {
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
-
-    public Message() {}
 
     public Message(String text, String tag, User author) {
         this.author = author;
@@ -25,6 +26,7 @@ public class Message {
     public String getAurhorName(){
         return author!=null ? author.getUsername() : "<none>";
     }
+
     public User getAuthor() {
         return author;
     }

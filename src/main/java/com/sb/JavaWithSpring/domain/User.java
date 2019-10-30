@@ -13,6 +13,7 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @Column(nullable = false, length = 10)
@@ -92,45 +93,5 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-    //пачка инфы о юзере
-
-    @Column(nullable = false, length = 60)
-    private String city;
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-    @Column(length = 16)
-    private String introduction;
-
-    public String displayContentOfOptional() {
-        if (Optional.ofNullable(introduction).isPresent())
-            return Optional.ofNullable(introduction).get();
-        else
-            return "";
-    }
-
-    public String displaySityOfOptional() {
-        if (Optional.ofNullable(city).isPresent())
-            return Optional.ofNullable(city).get();
-        else
-            return "";
-    }
-
-
 
 }

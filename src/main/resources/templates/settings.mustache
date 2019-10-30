@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <input type="text" name="city" placeholder = "Введите город" />
+        <input type ="text" name="profile" placeholder = "Введите немного информации о себе" />
+        <input type ="text" name="birthdayDate" placeholder = "Введите дату рождения в формате : yyyy-MM-dd " />
+        <input type ="text" name="achievements" placeholder = "Введите свои достижения" />
+        <input type ="text" name="hobbies" placeholder = "Введите свои хобби" />
+        <input type ="text" name="career" placeholder = "Введите свою карьеру" />
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type = "submit"> Добавить </button>
+    </form>
+
+</body>
+</html>

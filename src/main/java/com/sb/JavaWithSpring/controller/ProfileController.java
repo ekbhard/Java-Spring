@@ -9,10 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -29,29 +26,25 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String main(Map<String,Object> model){
+    public String profile(Map<String,Object> model){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userRepo.getUserByUsername(username);
-        model.put("name", user.getId());
-        model.put("id", user.getUsername());
+        if (user==null){
+            System.out.println("Юзер мертв!");
+        }else {
+            System.out.println("Я жив! : " + user.getUsername());
+        }
+        model.put("name", user.getUsername());
+        model.put("id", user.getId());
+        UserProfile up = userProfileRepo.findCurrentUserProfile(user.getId());
+        model.put("city",up.getCity());
+        model.put("dateBirthday",up.getDateBirthday().toString());
+        model.put("achievements",up.getAchievements());
+        model.put("career",up.getCareer());
+        model.put("hobbies",up.getHobbies());
+        model.put("profile",up.getProfile());
         return "profile";
     }
 
-    @PostMapping("profile")
-    public String addProfile(@RequestParam("city") String city, @RequestParam("info") String info,
-                        @RequestParam("birthday") Date birthday ,@RequestParam("city") Long userId) {
-        UserProfile userProfile = new UserProfile();
-        //имя конечно это круто , но если будут люди с одинаковыми именами , нужен сразу
-        // id человека который вошел сейчас...
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = ((UserDetails)principal).getUsername();
-        User user = userRepo.getUserByUsername(username);
-
-        userProfile.setUser(user);
-        userProfile.setCity(city);
-        userProfile.setProfile(info);
-        userProfile.setBirthdayDate(birthday);
-        return "profile";
-    }
 }

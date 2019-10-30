@@ -7,41 +7,52 @@ import java.util.Date;
 @Table(name = "user_profile")
 public class UserProfile {
 
-    //хз что с этим делать как то либо так либо
-//    @OneToOne
-//    @JoinColumn(name = "id_user")
-//    private User user;
-
-    //либо так
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @Column(length = 1024)
     private String city;
 
-    @Column()
-    private Date birthdayDate;
-
-    @Column(insertable = true, updatable = true, length = 40)
-    private String profile;
-
-    @Column(insertable = true, updatable = true, length = 40)
-    private String hobbies;
-
-    @Column(insertable = true, updatable = true, length = 40)
-    private String achivments;
-
-    @Column(insertable = true, updatable = true, length = 40)
-    private String careere;
-
-
-    public Date getBirthdayDate() {
-        return birthdayDate;
+    public UserProfile() {
     }
 
-    public void setBirthdayDate(Date birthdayDate) {
-        this.birthdayDate = birthdayDate;
+    @Basic
+    @Temporal(TemporalType.DATE)
+    @Column(name = "birthday")
+    private java.util.Date dateBirthday;
+
+    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    private String profile;
+
+    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    private String hobbies;
+
+    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    private String achievements;
+
+    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    private String career;
+
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getDateBirthday() {
+        return dateBirthday;
+    }
+
+    public void setDateBirthday(Date dateBirthday) {
+        this.dateBirthday = dateBirthday;
     }
 
     public String getCity() {
@@ -76,19 +87,19 @@ public class UserProfile {
         this.hobbies = hobbies;
     }
 
-    public String getAchivments() {
-        return achivments;
+    public String getAchievements() {
+        return achievements;
     }
 
-    public void setAchivments(String achivments) {
-        this.achivments = achivments;
+    public void setAchievements(String achievements) {
+        this.achievements = achievements;
     }
 
-    public String getCareere() {
-        return careere;
+    public String getCareer() {
+        return career;
     }
 
-    public void setCareere(String careere) {
-        this.careere = careere;
+    public void setCareer(String career) {
+        this.career = career;
     }
 }
