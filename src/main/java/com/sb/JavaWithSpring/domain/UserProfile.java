@@ -35,8 +35,8 @@ public class UserProfile {
     @Column(insertable = true, updatable = true, length = 40, nullable = true)
     private String career;
 
-    @OneToOne
-    @JoinColumn(name = "id_user")
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "id_user",unique = true)
     private User user;
 
     public User getUser() {

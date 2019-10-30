@@ -37,7 +37,7 @@ public class ProfileController {
         }
         model.put("name", user.getUsername());
         model.put("id", user.getId());
-        UserProfile up = userProfileRepo.findCurrentUserProfile(user.getId());
+        UserProfile up = userProfileRepo.getUserProfileByUser_Id(user.getId());
         model.put("city",up.getCity());
         model.put("dateBirthday",up.getDateBirthday().toString());
         model.put("achievements",up.getAchievements());

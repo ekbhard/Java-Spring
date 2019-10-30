@@ -10,7 +10,8 @@ public interface UserProfileRepo extends JpaRepository<UserProfile, Long> {
 //    @Query(value ="select * from public.user_profile where id_user = ?1", nativeQuery = true)
 //    UserProfile findCurrentUserProfile(Long id);
 
-    @Query("select up from UserProfile up where up.user = ?1")
-    UserProfile findCurrentUserProfile(Long id);
+//    @Query("select up from UserProfile up where up.user = ?1")
+//    UserProfile findCurrentUserProfile(Long id);
 
+    UserProfile getUserProfileByUser_Id(Long user_id);
 }
