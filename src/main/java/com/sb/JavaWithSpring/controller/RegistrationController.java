@@ -23,6 +23,11 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(User user, Map<String,Object> model){
+        if (user.getPassword().equals("") || user.getUsername().equals("")){
+            model.put("message","Null login and password");
+            return "registration";
+        }
+
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if (userFromDb != null){
