@@ -2,7 +2,7 @@ package com.sb.JavaWithSpring.controller;
 
 import com.sb.JavaWithSpring.domain.Role;
 import com.sb.JavaWithSpring.domain.User;
-import com.sb.JavaWithSpring.repos.UserRepo;
+import com.sb.JavaWithSpring.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Controller
 public class RegistrationController {
     @Autowired
-    private UserRepo userRepo;
+    private UserRepository userRepository;
 
     @GetMapping("/registration")
     public String registration(){
@@ -28,7 +28,7 @@ public class RegistrationController {
             return "registration";
         }
 
-        User userFromDb = userRepo.findByUsername(user.getUsername());
+        User userFromDb = userRepository.findByUsername(user.getUsername());
 
         if (userFromDb != null){
             model.put("message","User founded");
@@ -37,7 +37,7 @@ public class RegistrationController {
 
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        userRepo.save(user);
+        userRepository.save(user);
         return "redirect:/login";
     }
 }

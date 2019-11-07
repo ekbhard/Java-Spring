@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>Ссылка на все топики</div>
+    <a href="/topics">Все топики</a>
+    {{#topic}}
+        <ul>
+            <li>
+                <div>Топик c титульником : </div>
+                <strong><h2>{{title}}</h2></strong>
+            </li>
+            <li><h4>{{content}}</h4></li>
+            <li><h4>{{category}}</h4></li>
+        </ul>
+    {{/topic}}
+    {{#answers}}
+        <p>{{#user}}
+            {{username}}
+        {{/user}}</p>
+        <p>{{content}}</p>
+    {{/answers}}
+
+
+    <div>Добавить новый ответ : </div>
+    <form method="post">
+        <input type="text" name="content" placeholder = "Введите слово" />
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type = "submit"> Добавить </button>
+    </form>
+</body>
+</html>

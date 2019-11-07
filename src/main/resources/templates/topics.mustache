@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>Все топики</div>
+    {{#topics}}
+        <ul>
+            <li>
+                <div>Топик c титульником : </div>
+                <strong><h2>{{title}}</h2></strong>
+            </li>
+            <li><h4>{{content}}</h4></li>
+            <li><h4>{{category}}</h4></li>
+            <li><a href="topic/{{id}}">Ссылка на этот топик</a></li>
+        </ul>
+
+    {{/topics}}
+{{#header}}
+
+{{/header}}{{header}}</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <input type="text" name="category" placeholder = "Введите категорию" />
+        <input type ="text" name="title" placeholder = "Введите титуль" />
+        <input type ="text" name="content" placeholder = "Введите содержимое" />
+        <input type ="text" name="code" placeholder = "Введите код" />
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type = "submit"> Добавить </button>
+    </form>
+
+</body>
+</html>

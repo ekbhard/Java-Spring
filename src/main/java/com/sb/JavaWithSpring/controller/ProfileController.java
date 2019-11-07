@@ -3,7 +3,7 @@ package com.sb.JavaWithSpring.controller;
 import com.sb.JavaWithSpring.domain.User;
 import com.sb.JavaWithSpring.domain.UserProfile;
 import com.sb.JavaWithSpring.repos.UserProfileRepo;
-import com.sb.JavaWithSpring.repos.UserRepo;
+import com.sb.JavaWithSpring.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,13 +15,13 @@ import java.util.Map;
 @Controller
 public class ProfileController {
 
-    private final UserRepo userRepo;
+    private final UserRepository userRepository;
     private final UserProfileRepo userProfileRepo;
 
 
     @Autowired
-    public ProfileController(UserRepo userRepo, UserProfileRepo userProfileRepo) {
-        this.userRepo = userRepo;
+    public ProfileController(UserRepository userRepository, UserProfileRepo userProfileRepo) {
+        this.userRepository = userRepository;
         this.userProfileRepo = userProfileRepo;
     }
 
@@ -29,7 +29,7 @@ public class ProfileController {
     public String profile(Map<String,Object> model){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
-        User user = userRepo.getUserByUsername(username);
+        User user = userRepository.getUserByUsername(username);
         if (user==null){
             System.out.println("Юзер мертв!");
         }else {
