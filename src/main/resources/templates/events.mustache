@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {{#events}}
+        <ul>
+            <li>
+                <div>Название ивента : </div>
+                <strong><h2>{{title}}</h2></strong>
+            </li>
+
+            <li>
+            <li><a href="event/{{id}}">Ссылка на этот топик</a></li>
+            </li>
+
+            <li>
+                <div>Контент : </div>
+                <h4>{{text}}</h4>
+            </li>
+            <li>
+                <div>Начинается : </div>
+                <h4>{{dateStart}}</h4>
+                <div>Кончается : </div>
+                <h4>{{dateEnd}}</h4>
+            </li>
+
+            <li><li>
+            {{#users}}
+                {{id}}
+                {{username}}
+            {{/users}}
+        </li></li>
+        </ul>
+
+        <form method="post" action="submit" >
+            <button type="submit">Пойти на мероприятие</button>
+            <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        </form>
+    {{/events}}
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+</body>
+</html>

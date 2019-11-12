@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class User implements UserDetails {
     private Long id;
 
     @NotNull
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 40)
     private String username;
 
     @NotNull
@@ -31,6 +32,12 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role" , joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    @ManyToMany
+    @JoinTable (name="user_event",
+            joinColumns=@JoinColumn (name="user_id"),
+            inverseJoinColumns=@JoinColumn(name="event_id"))
+    private List<Events> events;
 
     public Long getId() {
         return id;
@@ -95,6 +102,14 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<Events> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Events events) {
+        this.events.add(events);
     }
 
 }

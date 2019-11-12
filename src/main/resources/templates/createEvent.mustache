@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form method="post">
+        <input type="text" name="place" placeholder = "Введите место" />
+        <input type ="text" name="title" placeholder = "Название" />
+        <input type ="text" name="text" placeholder = "Текст" />
+        <input type ="text" name="dateStart" placeholder = "yyyy-MM-dd начало" />
+        <input type ="text" name="dateEnd" placeholder = "yyyy-MM-dd конец" />
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type = "submit"> Добавить </button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>Ссылка на все ивенты</div>
+<a href="/events">Все ивенты</a>
+    {{#event}}
+        <ul>
+            <li>
+                <div>Название ивента : </div>
+                <strong><h2>{{title}}</h2></strong>
+            </li>
+
+            <li>
+                <div>Контент : </div>
+                <h4>{{text}}</h4>
+            </li>
+            <li>
+                <div>Начинается : </div>
+                <h4>{{dateStart}}</h4>
+                <div>Кончается : </div>
+                <h4>{{dateEnd}}</h4>
+            </li>
+            <li><li>
+            {{#usersJoin}}
+                {{id}}
+                {{username}}
+            {{/usersJoin}}
+        </li></li>
+        </ul>
+    {{/event}}
+    {{#message}}
+        {{message}}
+    {{/message}}
+    <form method="post" >
+        <button type="submit">Пойти на мероприятие</button>
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    </form>
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+</body>
+</html>

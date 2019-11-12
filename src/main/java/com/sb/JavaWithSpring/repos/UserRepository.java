@@ -21,5 +21,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
                     "SELECT 3 * COUNT(answer.id_user) AS points FROM answer WHERE answer.id_user = :id AND answer.useful = TRUE) t)",
             nativeQuery = true
     )
+
     Long getPoints(@Param("id") Long id);
 }
