@@ -32,7 +32,7 @@ public class CreateTopicController {
 
     @GetMapping("/createTopic")
     public String main(Map<String,Object> model){
-        return "/createTopic";
+        return "createTopic";
     }
 
     @PostMapping("createTopic")

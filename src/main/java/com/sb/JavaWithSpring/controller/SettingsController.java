@@ -70,7 +70,6 @@ public class SettingsController {
         } catch (IOException e) {
             System.out.println("Картинка не загрузилась");
         }
-
         try {
             userProfile.setDateBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthdayDate));
         }catch (ParseException e){}
@@ -80,6 +79,6 @@ public class SettingsController {
         userProfile.setHobbies(hobbies);
         userProfile.setCity(city);
         userProfileRepo.save(userProfile);
-        return "/settings";
+        return "main";
     }
 }

@@ -36,7 +36,7 @@ public class CreateEventController {
 
     @GetMapping("")
     public String main(Map<String,Object> model){
-        return "/createEvent";
+        return "createEvent";
     }
 
     @PostMapping

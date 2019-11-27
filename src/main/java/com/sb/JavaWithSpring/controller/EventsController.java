@@ -26,16 +26,10 @@ public class EventsController {
         this.eventRepository = eventRepository;
     }
 
-    @GetMapping("")
+    @GetMapping("/events")
     public String allevents(Map<String,Object> model){
         List<Events> events = eventRepository.findAll();
         model.put("events",events);
-        return "/events";
+        return "events";
     }
-
-    @PostMapping
-    public String submit(){
-        return "/events";
-    }
-
 }
