@@ -38,7 +38,7 @@ public class CreateEventController {
         return "createEvent";
     }
 
-    @PostMapping("createTopic")
+    @PostMapping("createEvent")
     public View createEvent(Map<String,Object> model,
                             @RequestParam String place,
                             @RequestParam String title,
