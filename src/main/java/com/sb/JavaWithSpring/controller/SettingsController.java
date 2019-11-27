@@ -80,6 +80,6 @@ public class SettingsController {
         userProfile.setHobbies(hobbies);
         userProfile.setCity(city);
         userProfileRepo.save(userProfile);
-        return "settings";
+        return "/settings";
     }
 }
