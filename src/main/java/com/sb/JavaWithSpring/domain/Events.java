@@ -43,6 +43,10 @@ public class Events {
     private List<User> users;
 
 
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public Events() {
     }
 
@@ -90,7 +94,7 @@ public class Events {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void addUsers(User users) {
         this.users.add(users);
     }
 

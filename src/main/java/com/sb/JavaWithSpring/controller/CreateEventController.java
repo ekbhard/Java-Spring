@@ -5,7 +5,6 @@ import com.sb.JavaWithSpring.domain.Events;
 import com.sb.JavaWithSpring.domain.User;
 import com.sb.JavaWithSpring.repos.EventRepository;
 import com.sb.JavaWithSpring.repos.UserRepository;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -52,8 +51,8 @@ public class CreateEventController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userRepository.getUserByUsername(username);
-//        List<User> users = new ArrayList<>();
-//        users.add(user);
+        List<User> users = new ArrayList<>();
+        users.add(user);
         Events event = new Events();
         event.setText(text);
         event.setTitle(title);
@@ -65,7 +64,7 @@ public class CreateEventController {
             event.setDateStart(new SimpleDateFormat("yyyy-MM-dd").parse(dateStart));
         }catch (ParseException e){}
         event.setPlace(place);
-        event.setUsers(user);
+        event.setUsers(users);
         eventRepository.save(event);
         String contextPath = request.getContextPath();
         return new RedirectView(contextPath + "/events");
