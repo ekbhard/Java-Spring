@@ -41,7 +41,7 @@ public class SettingsController {
 
     @GetMapping("/settings")
     public String main(Map<String,Object> model){
-        return "/settings";
+        return "settings";
     }
 
     @PostMapping("settings")
