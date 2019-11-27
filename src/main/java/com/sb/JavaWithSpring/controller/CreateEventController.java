@@ -22,7 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
-@RequestMapping("/createEvent")
 public class CreateEventController {
 
     private final UserRepository userRepository;
@@ -34,12 +33,12 @@ public class CreateEventController {
         this.eventRepository = eventRepository;
     }
 
-    @GetMapping("")
+    @GetMapping("/createEvent")
     public String main(Map<String,Object> model){
         return "createEvent";
     }
 
-    @PostMapping
+    @PostMapping("createTopic")
     public View createEvent(Map<String,Object> model,
                             @RequestParam String place,
                             @RequestParam String title,

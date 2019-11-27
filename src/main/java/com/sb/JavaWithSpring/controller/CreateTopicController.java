@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.Objects;
 
 @Controller
-
 public class CreateTopicController {
     private final UserRepository userRepository;
     private final TopicRepository topicRepository;
@@ -58,6 +57,6 @@ public class CreateTopicController {
         topic.setUser(user);
 
         topicRepository.save(topic);
-        return "redirect:/main";
+        return "redirect:/topics";
     }
 }
