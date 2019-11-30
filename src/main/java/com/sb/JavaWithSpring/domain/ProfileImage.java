@@ -16,10 +16,20 @@ public class ProfileImage {
     @JoinColumn(name = "id_user",unique = true)
     private User user;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[] profilePicture;
+//    @Lob
+//    @Basic(fetch = FetchType.LAZY)
 
+    public String getBase64Img() {
+        return base64Img;
+    }
+
+    public void setBase64Img(String base64Img) {
+        this.base64Img = base64Img;
+    }
+//    private byte[] profilePicture;
+
+    @Column(name = "img", updatable = false, nullable = false,length = 8000)
+    private String base64Img;
 
     public Long getId() {
         return id;
@@ -37,11 +47,11 @@ public class ProfileImage {
         this.user = user;
     }
 
-    public byte[] getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(byte[] profilePicture) {
-        this.profilePicture = profilePicture;
-    }
+//    public byte[] getProfilePicture() {
+//        return profilePicture;
+//    }
+//
+//    public void setProfilePicture(byte[] profilePicture) {
+//        this.profilePicture = profilePicture;
+//    }
 }
