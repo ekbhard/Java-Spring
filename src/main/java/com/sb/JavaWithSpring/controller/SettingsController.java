@@ -42,7 +42,7 @@ public class SettingsController {
         return "settings";
     }
 
-    @PostMapping("settings")
+    @PostMapping("/settings")
     public String addProfile(@RequestParam("city") String city,
                              @RequestParam("profile") String profile,
                              @RequestParam ("birthdayDate") String birthdayDate,
