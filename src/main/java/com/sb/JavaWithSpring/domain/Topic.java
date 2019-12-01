@@ -26,13 +26,13 @@ public class Topic {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false, length = 1000)
     private String title;
 
     @Column(nullable = false, length = 1024)
     private String content;
 
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 1000)
     private String category;
 
     private LocalDateTime createdDate;

@@ -23,16 +23,16 @@ public class UserProfile {
     @Column(name = "birthday")
     private java.util.Date dateBirthday;
 
-    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    @Column(insertable = true, updatable = true, length = 4000, nullable = true)
     private String profile;
 
-    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    @Column(insertable = true, updatable = true, length = 4000, nullable = true)
     private String hobbies;
 
-    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    @Column(insertable = true, updatable = true, length = 4000, nullable = true)
     private String achievements;
 
-    @Column(insertable = true, updatable = true, length = 40, nullable = true)
+    @Column(insertable = true, updatable = true, length = 4000, nullable = true)
     private String career;
 
     @OneToOne(cascade = CascadeType.REMOVE)

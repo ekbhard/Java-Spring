@@ -28,7 +28,7 @@ public class ProfileImage {
     }
 //    private byte[] profilePicture;
 
-    @Column(name = "img", updatable = false, nullable = false,length = 8000)
+    @Column(name = "img", updatable = false, nullable = false, length = 8000)
     private String base64Img;
 
     public Long getId() {

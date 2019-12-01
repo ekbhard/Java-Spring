@@ -17,13 +17,13 @@ public class Events {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 1024)
     private String place;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 1024)
     private String title;
 
-    @Column(nullable = false, length = 2048)
+    @Column(nullable = false, length = 6000)
     private String text;
 
     @Basic
