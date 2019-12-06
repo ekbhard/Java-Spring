@@ -1,9 +1,11 @@
 package com.sb.JavaWithSpring.controller;
 
 import com.sb.JavaWithSpring.domain.Events;
+import com.sb.JavaWithSpring.domain.Topic;
 import com.sb.JavaWithSpring.repos.EventRepository;
 import com.sb.JavaWithSpring.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

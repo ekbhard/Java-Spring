@@ -39,14 +39,12 @@ public class CreateEventController {
     }
 
     @PostMapping("createEvent")
-    public View createEvent(Map<String,Object> model,
+    public String createEvent(Map<String,Object> model,
                             @RequestParam String place,
                             @RequestParam String title,
                             @RequestParam String text,
                             @RequestParam String dateStart,
-                            @RequestParam String dateEnd,
-                            HttpServletRequest request){
-
+                            @RequestParam String dateEnd){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userRepository.getUserByUsername(username);
@@ -65,8 +63,7 @@ public class CreateEventController {
         event.setPlace(place);
         event.setUsers(users);
         eventRepository.save(event);
-        String contextPath = request.getContextPath();
-        return new RedirectView(contextPath + "/events");
+        return "redirect:/topics";
     }
 
 }
