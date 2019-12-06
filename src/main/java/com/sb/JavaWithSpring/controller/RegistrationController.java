@@ -34,7 +34,6 @@ public class RegistrationController {
             model.put("message","User founded");
             return "registration";
         }
-
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
