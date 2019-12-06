@@ -57,6 +57,6 @@ public class CreateTopicController {
         topic.setUser(user);
 
         topicRepository.save(topic);
-        return "redirect:/topics";
+        return "redirect:/main";
     }
 }

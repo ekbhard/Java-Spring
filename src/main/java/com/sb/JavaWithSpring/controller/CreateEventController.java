@@ -63,7 +63,7 @@ public class CreateEventController {
         event.setPlace(place);
         event.setUsers(users);
         eventRepository.save(event);
-        return "redirect:/topics";
+        return "redirect:/main";
     }
 
 }
