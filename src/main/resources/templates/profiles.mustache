@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<a href="/main">На главную</a>
+{{#message}}
+    {{message}}
+{{/message}}
+{{#users}}
+    <div>Данные о юзере</div>
+    <div> Привет! Меня зовут : </div>
+    <strong>{{username}}</strong>
+    <div>
+    <a href="profiles/{{id}}">Ссылка на этого юзера</a>
+    </div>
+{{/users}}
+</body>
+</html>
