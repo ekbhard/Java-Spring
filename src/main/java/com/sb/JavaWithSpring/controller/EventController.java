@@ -35,7 +35,11 @@ public class EventController {
         String username = ((UserDetails)principal).getUsername();
         Long idUser = userRepository.getUserByUsername(username).getId();
         Events event = eventRepository.findEventsById(Long.valueOf(id));
+        String endDate = event.getDateEnd().toString();
+        String startDate = event.getDateStart().toString();
         model.put("event", event);
+        model.put("dateEnd", endDate);
+        model.put("dateStart", startDate);
         model.put("usersJoin", event.getUsers());
         return "event";
     }

@@ -29,10 +29,6 @@
             {{/users}}
         </li></li>
         </ul>
-        <form method="post" action="submit" >
-            <button type="submit">Пойти на мероприятие</button>
-            <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
-        </form>
     {{/events}}
     <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
 </body>
