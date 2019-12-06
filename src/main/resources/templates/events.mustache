@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-<div>{{message}}</div>
+
 <body>
+{{#message}}
+    {{message}}
+{{/message}}
     {{#events}}
         <ul>
             <li>
@@ -31,7 +34,6 @@
             {{/users}}
         </li></li>
         </ul>
-
         <form method="post" action="submit" >
             <button type="submit">Пойти на мероприятие</button>
             <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />

@@ -31,6 +31,7 @@ public class EventsController {
         model.put("events",events);
         if (events.size()==0){
             model.put("message","Ни одного события еще не было сделано");
+            return "events";
         }
         return "events";
     }
