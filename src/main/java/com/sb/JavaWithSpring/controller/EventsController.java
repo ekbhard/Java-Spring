@@ -25,10 +25,13 @@ public class EventsController {
         this.eventRepository = eventRepository;
     }
 
-    @GetMapping("/events")
+    @GetMapping("events")
     public String allevents(Map<String,Object> model){
         List<Events> events = eventRepository.findAll();
         model.put("events",events);
+        if (events.size()==0){
+            model.put("message","Ни одного события еще не было сделано");
+        }
         return "events";
     }
 }
