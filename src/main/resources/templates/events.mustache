@@ -5,6 +5,24 @@
 <div><a href="/main">На главную страницу</a>
 </div>
 <div>
+    <div>Введите имя сторудника</div>
+    <form method="post" action="filterUser" >
+        <input type="text" name="userName">
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type="submit">Найти</button>
+    </form>
+<div>Введите дату в формате : dd.MM.YYYY</div>
+    <form method="post" action="filterDate" >
+        <input type="text" name="date">
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type="submit">Найти</button>
+    </form>
+    <div>Введите название ивента</div>
+    <form method="post" action="filterEvent" >
+        <input type="text" name="eventName">
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type="submit">Найти</button>
+    </form>
 {{#message}}
     {{message}}
 {{/message}}
@@ -33,5 +51,7 @@
         </ul>
     {{/events}}
     <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+
+
 </body>
 </html>

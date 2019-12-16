@@ -2,6 +2,12 @@
 <html>
 <body>
 <a href="/main">На главную</a>
+<div>Введите имя сотрудника</div>
+<form method="post" action="filterUserName" >
+    <input type="text" name="name">
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    <button type="submit">Найти</button>
+</form>
 {{#message}}
     {{message}}
 {{/message}}

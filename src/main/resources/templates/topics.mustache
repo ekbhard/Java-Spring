@@ -3,6 +3,27 @@
 <body>
 <a href="/main">На главную</a>
     <div>Все топики</div>
+<div>Введите имя сторудника</div>
+<form method="post" action="filterUserTopic" >
+    <input type="text" name="userName">
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    <button type="submit">Найти</button>
+</form>
+<div>Введите категорию</div>
+<form method="post" action="filterCategory" >
+    <input type="text" name="category">
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    <button type="submit">Найти</button>
+</form>
+<div>Введите название топика</div>
+<form method="post" action="filterTitle" >
+    <input type="text" name="title">
+    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+    <button type="submit">Найти</button>
+</form>
+{{#message}}
+    {{message}}
+{{/message}}
     {{#topics}}
         <ul>
             <li>
@@ -14,7 +35,5 @@
             <li><a href="topic/{{id}}">Ссылка на этот топик</a></li>
         </ul>
     {{/topics}}
-{{#header}}
-
-{{/header}}{{header}}</body>
+</body>
 </html>

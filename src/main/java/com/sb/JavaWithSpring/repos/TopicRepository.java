@@ -13,4 +13,6 @@ public interface TopicRepository extends JpaRepository<Topic, Long> {
 
     List<Topic> findTopicsByCategoryOrderByCreatedDateDesc(String category);
     List<Topic> findTopicsByUser_IdOrderByCreatedDateDesc(Long id);
+    List<Topic> findTopicsByCategory(String category);
+    List<Topic> findTopicsByTitle(String title);
 }
