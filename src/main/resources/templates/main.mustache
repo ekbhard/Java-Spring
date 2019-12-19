@@ -1,16 +1,216 @@
 <html>
+<head>
+    <link rel="img" href="/img" />
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style type="text/css">
+        .header {
+            position: relative;
+            padding: 8px;
+            margin: 0px 0px 0px 0px;
+
+            height: 80px;
+            /*background-color: lightgrey;*/
+            border-radius: 50px;
+            /*!* UI Properties *!*/
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 7px 6px #00000029;
+            border: 1px solid #707070;
+            /*opacity: 1;*/
+            filter: blur(undefined);
+        }
+
+        .For_out {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /*background-color: black;*/
+            right: 5%;
+            bottom: 50%;
+            transform: translate(15%,50%);
+        }
+
+        .my_out {
+            width: 35px;
+            height: 35px;
+
+        }
+
+        .main {
+            background-color: gray;
+            margin-top: 10px;
+            margin-left: 10%;
+            margin-right: 10px;
+            height: 74%;
+            width: 61%;
+            display: inline-block;
+            position: relative;
+
+        }
+
+        .massages {
+            display: inline-block;
+            /*background-color: green;*/
+            height: 72.5%;
+            margin-top: 10px;
+            width: 22%;
+            right: 5%;
+            position: absolute;
+        }
+
+        .block1 {
+            background-color: green;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+        }
+
+        .block2 {
+            position: relative;
+            display: inline-block;
+            /*background-color: green;*/
+            width: 50%;
+            height: 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+        }
+
+        #block_1 {
+            background-image: url("src/main/main_1.png");
+            float: left;
+            position: relative;
+        }
+
+        #block_2 {
+            float: left;
+            background-image: url("src/main/main_2.png");
+            position: relative;
+        }
+
+        #block_3 {
+            background-image: url("src/main/main_3.png");
+            float: left;
+            position: relative;
+
+        }
+
+        #block_4 {
+            background-image: url("src/main/main_4.png");
+            background-color: green;
+            position: relative;
+
+        }
+        .block_center {
+            /*background-color: red;*/
+            position: absolute;
+            display: block;
+            top: 40%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -40%);
+            opacity: 1;
+        }
+
+        .four {
+            width: 100px;
+            height: 100px;
+        }
+
+        .text_field {
+            position: absolute;
+            /*background-color: blue;*/
+            width: 80%;
+            height: 8%;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            text-align: center;
+
+        }
+        .named {
+            color: white;
+        }
+
+
+    </style>
+</head>
 <body>
-<div>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
-        <input type="submit" value="Sign Out"/>
-    </form>
+<div class="header">
+    <div class="For_out">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+            <input class="my_out" type="image" src="src/outButton.png"/>
+        </form>
+    </div>
 </div>
+<div class="main">
+    <div class="block1" id="block_1">
+        <div class="block_center">
+                    <!--<img class="four one" src="src/main/resources/frontImages/WebStorm.png">-->
+            <p><a href="lorem.html"><img src="src/main/resources/frontImages/WebStorm.png"
+                                         width="189" height="255" alt="lorem"></a>
+                Lorem ipsum dolor sit amet...</p>
+        </div>
+        <div class="text_field">
+                        <h1 class="named">Личный кабинет</h1>
+        </div>
+
+    </div>
+
+    <div class="block1" id="block_2">
+        <div class="block_center">
+                    <img class="four two" src="/sources/images/calendar.png">
+        </div>
+        <div class="text_field">
+                        <h1 class="named">События</h1>
+        </div>
+
+    </div>
+
+    <div class="block2" id="block_3">
+        <div class="block_center">
+            <!--//тут ссылка-->
+                <p><a href="/topics">
+                    <!--тут бейс 64 картинка-->
+            <img src="data:image/png;base64,
+            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" alt="Profile pic" />
+            </a><br>
+        </div>
+        <div class="text_field">
+                        <h1 class="named">Топики</h1>
+        </div>
+    </div>
+
+    <div class="block2" id="block_4">
+        <div class="block_center">
+         <input class="four cheture" type="image" src="src/main/supportEmpl.png">
+        </div>
+        <div class="text_field">
+            <h1 class="named">Коллеги</h1>
+        </div>
+    </div>
+
+
+    <form method="post">
+        <input type="text" name="text" placeholder = "Введите слово" />
+        <input type ="text" name="tag" placeholder = "Тэг" />
+        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <button type = "submit"> Добавить </button>
+    </form>
+    <div>Список сообщений</div>
+</div>
+
+    <a href="/settings">Настройки</a><br>
+    <a href="/profile">Профиль</a><br>
+    <a href="/createTopic">Создание новой части форума</a><br>
+    <a href="/topics">Все топики</a><br>
+    <a href="/events">Все ивенты</a><br>
+    <a href="/createEvent">Создать ивент</a><br>
+
 </body>
-<h3><a href="/profiles">Поиск по всем сотрудникам</a></h3>
-<h3><a href="/profile">Профиль</a></h3>
-<h3><a href="/createTopic">Создание нового топика</a></h3>
-<h3><a href="/topics">Все топики</a></h3>
-<h3><a href="/events">Все ивенты</a></h3>
-<h3><a href="/createEvent">Создать ивент</a></h3>
 </html>
