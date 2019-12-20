@@ -1,31 +1,108 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <title>Профиль</title>
+    <style type="text/css">
+        body {
+            background-image: url("src/login/background.png");
+            background-size: cover;
+            font-family: 'Fira Sans';
+        }
+
+        .continer {
+            margin: 10px auto;
+            background-color: white;
+            padding: 10px;
+            width: 80%;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .header {
+            position: relative;
+            padding: 8px;
+            margin: 0px 0px 0px 0px;
+
+            height: 80px;
+            /*background-color: lightgrey;*/
+            border-radius: 50px;
+            /*!* UI Properties *!*/
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 7px 6px #00000029;
+            border: 1px solid #707070;
+            /*opacity: 1;*/
+            filter: blur(undefined);
+
+        }
+
+        .For_out {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /*background-color: black;*/
+            right: 5%;
+            bottom: 50%;
+            transform: translate(15%,50%);
+        }
+
+        .descriotion {
+            display: inline-block;
+            margin-right: 40%;
+
+        }
+        .two {
+            position: absolute;
+            top: 8%;
+            margin-right: 10px;
+            right: 10%;
+            transform: translate(-10%,-8%);
+
+        }
+        h4 {
+
+        }
+
+        img {
+            width: 350px;
+            height: 400px;
+        }
+
+    </style>
+</head>
 <body>
-<a href="/main">На главную</a>
-{{#message}}
-    {{message}}
-{{/message}}
-    <div>Данные о юзере</div>
-    <div> Привет! Меня зовут : </div>
-    <strong>{{name}}</strong>
-    <div>
-    <p>Картинка профиля</p>
-    <img src="data:image/jpg;base64, {{imgPath}}" alt="Profile pic" />
+
+<div class="header">
+    <div class="For_out">
+        <form action="/main">
+            <input class="my_out" type="image" src="src/outButton.png"/>
+        </form>
     </div>
-    <div> Мой айдишник : </div>
-    <strong>{{id}}</strong>
-    <div> Мой город : </div>
-    <strong>{{city}}</strong>
-    <div> Мой др : </div>
-    <strong>{{dateBirthday}}</strong>
-    <div> Мои достижения : </div>
-    <strong>{{achievements}}</strong>
-    <div> Моя карьера : </div>
-    <strong>{{career}}</strong>
-    <div> Мои хобби : </div>
-    <strong>{{hobbies}}</strong>
-    <div> Мой профайл : </div>
-    <strong>{{profile}}</strong>
+</div>
+        <!--{{#message}}-->
+<!--{{message}}-->
+        <!--{{/message}}-->
+<div class="continer">
+
+    <div class="descriotion">
+        <h1>Данные о пользователе:</h1>
+        Привет! Меня зовут : <strong>{{name}}</strong>
+        <div>
+            <p>Картинка профиля</p>
+            <img src="data:image/jpg;base64, {{imgPath}}" alt="Profile pic" />
+        </div>
     </div>
+    <div class="descriotion two">
+        Мой айдишник : <strong>{{id}}</strong><br><br>
+        Мой город : <strong>{{city}}</strong><br><br>
+        Мой др : <strong>{{dateBirthday}}</strong><br><br>
+        Мои достижения : <strong>{{achievements}}</strong><br><br>
+        Моя карьера : <strong>{{career}}</strong><br><br>
+        Мои хобби : <strong>{{hobbies}}</strong><br><br>
+        Мой профайл : <strong>{{profile}}</strong>
+    </div>
+</div>
 </body>
+</html>
 </html>

@@ -1,14 +1,100 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Создание топика</title>
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <style type="text/css">
+        body {
+            background-image: url("src/login/background.png");
+            background-size: cover;
+            font-family: 'Fira Sans';
+        }
+        .form {
+            margin: 10px 10px;
+            width: 40%;
+            height: 100px;
+        }
+        button{
+            margin: 10px 10px;
+            width: 20%;
+            height: 30px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: green;
+            font-size: 15px;
+            width: 21%;
+            height: 33px;
+            transition: .2s;
+        }
+
+        h2 {
+            margin: 10px 10px;
+        }
+
+        .header {
+            position: relative;
+            padding: 8px;
+            margin: 0px 0px 0px 0px;
+
+            height: 80px;
+            /*background-color: lightgrey;*/
+            border-radius: 50px;
+            /*!* UI Properties *!*/
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 7px 6px #00000029;
+            border: 1px solid #707070;
+            /*opacity: 1;*/
+            filter: blur(undefined);
+
+        }
+
+        .For_out {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /*background-color: black;*/
+            right: 5%;
+            bottom: 50%;
+            transform: translate(15%,50%);
+        }
+        .container {
+            margin: 10px auto;
+            background-color: white;
+            padding: 10px;
+            width: 80%;
+            position: relative;
+            border-radius: 20px;
+        }
+
+
+
+    </style>
+</head>
 <body>
-<a href="/main">Отмена</a>
+<div class="header">
+    <div class="For_out">
+        <form action="/main">
+            <input class="my_out" type="image" src="src/outButton.png"/>
+        </form>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>Создание темы:</h2>
     <form method="post">
-        <input type="text" name="category" placeholder = "Введите категорию" />
-        <input type ="text" name="title" placeholder = "Введите титуль" />
-        <input type ="text" name="content" placeholder = "Введите содержимое" />
-        <input type ="text" name="code" placeholder = "Введите код" />
-        <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
+        <input class="form" type="text" name="category" placeholder = "Введите категорию" /><br>
+        <input class="form" type ="text" name="title" placeholder = "Введите титул" /><br>
+        <input class="form" type ="text" name="content" placeholder = "Введите содержимое" /><br>
+        <input class="form" type ="text" name="code" placeholder = "Введите код" /><br>
+        <input class="form" type="hidden" name="_csrf" value = "{{_csrf.token}}" /><br>
         <button type = "submit"> Добавить </button>
     </form>
+</div>
+
 </body>
 </html>

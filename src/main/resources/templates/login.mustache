@@ -1,25 +1,9 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--<title>Spring Security Example </title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<form action="/login" method="post">-->
-<!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
-<!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
-<!--<input type="hidden" name="_csrf" value = "{{_csrf.token}}" />-->
-<!--<div><input type="submit" value="Sign In"/></div>-->
-<!--</form>-->
-<!--<a href="/registration">Add new user</a>-->
-<!--</body>-->
-<!--</html>-->
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Вход</title>
+    <link rel="shortcut icon" href="logo.png" type="image/png">
     <!--    <link rel="stylesheet" href=".css" type="text/css"/>-->
     <style type="text/css">
         body {
@@ -29,6 +13,7 @@
             /*left: 0px;*/
             /*width: 1920px;*/
             /*height: 1080px;*/
+            background-size: cover;
 
             /*opacity: 1;*/
         }
@@ -164,10 +149,11 @@
         .Button {
 
             display: inline-block;
-            width: 40%;
+            width: 80%;
             height: 35px;
-            margin-left: 6%;
+            margin-left: 9%;
             border: 1px solid black;
+            border-radius: 20px;
             /*position: absolute;*/
 
         }
@@ -176,9 +162,10 @@
 
         .knopka {
             width: 100%;
-            height: 100%;
+            height: 35px;
             font-size: 15px;
             background-color: white;
+            border-radius: 20px;
         }
 
         .welcome {
@@ -194,7 +181,7 @@
             width: 100%;
             height: 20%;
             top: 55%;
-            position: relative;
+            position: absolute;
 
         }
         .signIn {
@@ -212,9 +199,11 @@
 
         .signIn:hover {
             background-color: green;
+            transition:0.2s
         }
         .knopka:hover {
             background-color: green;
+            transition: 0.2s;
         }
 
 
@@ -225,32 +214,38 @@
     </style>
 </head>
 <body>
-<div class="Button">
-    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
-    <a class="refer" href="/registration" ><button class="knopka">Регистрация</button></a>
+<div class="header">
+
 </div>
-<form action="/login" method="post">
-    <div class="header">
+
+<div class="conteiner">
+    <div class="images">
+        <!--<img class="logo" src="logo.png">-->
     </div>
-    <div class="conteiner">
-        <!--<div class="images">-->
-            <!--<img class="logo" src="logo.png">-->
-        <!--</div>-->
 
-        <div class="forRegistr">
-            <div class="ButtonParent">
-                <div class="Button">
-                    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
-                    <input class="knopka" type="submit" />
-                </div>
-
+    <div class="forRegistr">
+        <div class="ButtonParent">
+            <div class="Button">
+                <!--                   <a class="knopka"  href="registration.html">Регистрация</a>-->
+                <form action="/registration">
+                    <button class="knopka">Регистрация </button>
+                </form>
             </div>
 
-            <div class="welcome">
-                <h3>Добро пожаловать!</h3>
-            </div>
+            <!--                <div class="Button">-->
+            <!--                    <form action="/login" method="post">-->
+            <!--                    <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />-->
 
 
+
+            <!--                </div>-->
+        </div>
+
+        <div class="welcome">
+            <h3>Добро пожаловать!</h3>
+        </div>
+
+        <form action="/login" method="post">
             <div class="userName">
                 <!--                <label> User Name:</label>-->
                 <div class="inp">
@@ -263,10 +258,12 @@
             </div>
 
             <div class="ComeIn">
+                <input type="hidden" name="_csrf" value = "{{_csrf.token}}" />
                 <button class="signIn">Войти</button>
             </div>
-        </div>
+        </form>
     </div>
-</form>
+</div>
+
 </body>
-</html></html>
+</html>
